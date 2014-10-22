@@ -1,6 +1,8 @@
 use Test;
 use ClassX::StrictConstructor;
 
+plan 10;
+
 class Standard {
     has $.thing;
 }
