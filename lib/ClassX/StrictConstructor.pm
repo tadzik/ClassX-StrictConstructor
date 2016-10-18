@@ -21,10 +21,7 @@ role ClassX::StrictConstructor {
         my @extras;
         for %attrs.keys -> $attr {
             unless has_attr(self.WHAT, $attr) {
-                my $inherited = False;
-                for self.^parents -> $parent {
-                    $inherited = True if has_attr($parent, $attr)
-                }
+                my $inherited = has_attr(any(self.^parents), $attr);
                 @extras.push: $attr unless $inherited;
             }
         }
